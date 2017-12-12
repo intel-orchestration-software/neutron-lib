@@ -103,6 +103,22 @@ VIF_TYPE_AGILIO_OVS = 'agilio_ovs'
 VIF_TYPE_HW_VEB = 'hw_veb'
 VIF_TYPE_HOSTDEV_PHY = 'hostdev_physical'
 
+# The keys below are used in the VIF_DETAILS attribute to convey
+# information related to the configuration of the vhost-vfio VIF driver.
+
+# - mdev_path: string path e.g. /sys/bus/mdev/devices/<neutron port uuid>
+VHOST_VFIO_MDEV_PATH = 'mdev_path'
+
+# - mdev_type: string type of mdev to create.
+VHOST_VFIO_MDEV_TYPE = 'mdev_type'
+
+# - mdev_parent_device: string path to parent device
+#   used to (de)allocate mdev
+VHOST_VFIO_PARENT_DEVICE = 'mdev_parent_device'
+
+# vhost vfio mediated device type
+VIF_TYPE_VHOST_VFIO = 'vhost_vfio'
+
 # VNIC_TYPE: It's used to determine which mechanism driver to use to bind a
 #            port. It can be specified via the Neutron API. Default is normal,
 #            used by OVS and LinuxBridge agent.
@@ -112,9 +128,10 @@ VNIC_MACVTAP = 'macvtap'
 VNIC_BAREMETAL = 'baremetal'
 VNIC_DIRECT_PHYSICAL = 'direct-physical'
 VNIC_VIRTIO_FORWARDER = 'virtio-forwarder'
+VNIC_VHOST_VFIO = 'vhost-vfio'
 
 VNIC_TYPES = [VNIC_NORMAL, VNIC_DIRECT, VNIC_MACVTAP, VNIC_BAREMETAL,
-              VNIC_DIRECT_PHYSICAL, VNIC_VIRTIO_FORWARDER]
+              VNIC_DIRECT_PHYSICAL, VNIC_VIRTIO_FORWARDER, VNIC_VHOST_VFIO]
 
 
 # The alias of the extension.
